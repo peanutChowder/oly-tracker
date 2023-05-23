@@ -39,6 +39,7 @@ const App = () => {
   const [currExercise, setCurrExercise] = useState('')
   const [currSet, setCurrSet] = useState('')
   const [currRep, setCurrRep] = useState('')
+  const [date, setDate] = useState(new Date().toLocaleDateString())
 
 
   const handleRandomQuote = () => {
@@ -74,10 +75,12 @@ const App = () => {
         currExercise={currExercise}
         currSet={currSet}
         currRep={currRep}
+        currDate={date}
         setExercises={setExercises}
         setCurrExercise={setCurrExercise}
         setCurrSet={setCurrSet}
         setCurrRep={setCurrRep}
+        setCurrDate={setDate}
       />
       <TopAnecdote numVotes={Math.max(...points)} anecdote={anecdotes[points.indexOf(Math.max(...points))]}/>
     </div>
