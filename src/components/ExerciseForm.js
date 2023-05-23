@@ -2,6 +2,7 @@ import React from "react";
 
 const ExerciseForm = (
     {
+        MAX_SETS,
         exercises,
         currExercise,
         currSet,
@@ -33,6 +34,10 @@ const ExerciseForm = (
 
     const addExercise = (event) => {
         event.preventDefault()
+        if (currSet > MAX_SETS) {
+            console.log("Exceeding maximum sets. Did not add exercise")
+            return
+        }
         setExercises(
             [
                 ...exercises, 

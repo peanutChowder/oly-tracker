@@ -1,7 +1,7 @@
 import ExerciseRow from "./ExerciseRow"
 
-const ExerciseGrid = () => {
-    const weightEntries = 13
+const ExerciseGrid = ({exercises}) => {
+    const weightEntries = 12
     return (
         <div>
             <div className='exercise-row'>
@@ -12,7 +12,10 @@ const ExerciseGrid = () => {
                 {[...Array(weightEntries).keys()].map((key) => (<div key={key}></div>))}
                 
             </div>
-            <ExerciseRow exerciseObj={{date: "5/11/20", name: "Clean and jerk", sets: "4", reps: "3"}} numSets={4}/>
+            {exercises.map((exercise, i) => (
+                <ExerciseRow key={i} exerciseObj={exercise}/>
+            ))}
+            {/* <ExerciseRow exerciseObj={{date: "5/11/20", name: "Clean and jerk", sets: "4", reps: "3"}} numSets={4}/> */}
         </div>
     )
 }

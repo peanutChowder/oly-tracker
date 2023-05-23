@@ -4,6 +4,7 @@ import ExerciseForm from './components/ExerciseForm'
 import ExerciseGrid from './components/ExerciseGrid'
 
 const App = () => {
+  const MAX_SETS = 12
   const [exercises, setExercises] = useState([])
 
   const [currExercise, setCurrExercise] = useState('')
@@ -15,6 +16,7 @@ const App = () => {
     <div>
       <h1>Oly tracker v1</h1>
       <ExerciseForm
+        MAX_SETS={MAX_SETS}
         exercises={exercises}
         currExercise={currExercise}
         currSet={currSet}
@@ -26,7 +28,7 @@ const App = () => {
         setCurrRep={setCurrRep}
         setCurrDate={setDate}
       />
-      <ExerciseGrid/>
+      <ExerciseGrid exercises={exercises}/>
     </div>
   )
 }
