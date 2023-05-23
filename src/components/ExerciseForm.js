@@ -49,7 +49,6 @@ const ExerciseForm = (
         setCurrExercise('')
         setCurrSet('')
         setCurrRep('')
-        setCurrDate(new Date().toLocaleDateString())
 
         console.log(exercises)
     }
