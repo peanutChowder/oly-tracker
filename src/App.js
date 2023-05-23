@@ -2,7 +2,6 @@ import { useState } from 'react'
 import './index.css'
 import ExerciseForm from './components/ExerciseForm'
 import ExerciseGrid from './components/ExerciseGrid'
-import ExerciseRow from './components/ExerciseRow'
 
 const App = () => {
   const [exercises, setExercises] = useState([])
@@ -10,7 +9,7 @@ const App = () => {
   const [currExercise, setCurrExercise] = useState('')
   const [currSet, setCurrSet] = useState('')
   const [currRep, setCurrRep] = useState('')
-  const [date, setDate] = useState(new Date().toLocaleDateString())
+  const [date, setDate] = useState(new Date().toLocaleDateString('en-US', {day: "2-digit", month:"2-digit", year: "2-digit"}))
 
   return (
     <div>
@@ -28,8 +27,6 @@ const App = () => {
         setCurrDate={setDate}
       />
       <ExerciseGrid/>
-      <ExerciseRow exerciseObj={{date: "5/11/20"}} numSets={10}/>
-      <ExerciseRow exerciseObj={{date: "5/11/20"}} numSets={13}/>
     </div>
   )
 }
