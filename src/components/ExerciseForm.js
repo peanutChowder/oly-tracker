@@ -2,6 +2,10 @@ import React from "react";
 
 const ExerciseForm = (
     {
+        exercises,
+        currExercise,
+        currSet,
+        currRep,
         setExercises,
         setCurrExercise,
         setCurrRep,
@@ -23,20 +27,37 @@ const ExerciseForm = (
         setCurrRep(event.target.value)
     }
 
-    const handleSubmit = (event) => {
-        setExercises()
+    const addExercise = (event) => {
+        event.preventDefault()
+        setExercises(
+            [
+                ...exercises, 
+                {
+                    "name": currExercise,
+                    "sets": currSet,
+                    "reps": currRep
+                }
+            ]
+        )
+
+        // clear input 
+        setCurrExercise('')
+        setCurrSet('')
+        setCurrRep('')
+
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={addExercise}>
             <div className="grid-container">
                 <div className='grid-item'>Exercise name</div>
                 <div className='grid-item'>Sets</div>
                 <div className='grid-item'>Reps</div>
-                <div className='grid-item'><input onChange={handleExerciseChange}></input></div>
-                <div className='grid-item'><input onChange={handleSetChange}></input></div>
-                <div className='grid-item'><input onChange={handleRepChange}></input></div>
+                <div className='grid-item'><input onChange={handleExerciseChange} value={currExercise}></input></div>
+                <div className='grid-item'><input onChange={handleSetChange} value={currSet}></input></div>
+                <div className='grid-item'><input onChange={handleRepChange} value={currRep}></input></div>
             </div>
+            <button type="submit">Add</button>
         </form>
     )
 }

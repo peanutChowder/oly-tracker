@@ -37,8 +37,8 @@ const App = () => {
   const [exercises, setExercises] = useState([])
 
   const [currExercise, setCurrExercise] = useState('')
-  const [currSet, setCurrSet] = useState(0)
-  const [currRep, setCurrRep] = useState(0)
+  const [currSet, setCurrSet] = useState('')
+  const [currRep, setCurrRep] = useState('')
 
 
   const handleRandomQuote = () => {
@@ -70,6 +70,10 @@ const App = () => {
         <button onClick={handleRandomQuote}>next anecdote</button>
       </div>
       <ExerciseForm
+        exercises={exercises}
+        currExercise={currExercise}
+        currSet={currSet}
+        currRep={currRep}
         setExercises={setExercises}
         setCurrExercise={setCurrExercise}
         setCurrSet={setCurrSet}
