@@ -2,7 +2,6 @@
 // we will use inline styles to do this
 
 const ExerciseRow = ({exerciseObj, numSets}) => {
-    const weightEntries = 13
     const colWidth = (100 / numSets).toString() + '% '
     const cssCols = colWidth.repeat(numSets)
     const rowStyle = {
