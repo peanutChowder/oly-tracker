@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import './index.css'
+import ExerciseForm from './components/ExerciseForm'
 
 const TopAnecdote = ({anecdote, numVotes}) => {
   return (
@@ -32,6 +34,12 @@ const App = () => {
   const [selected, setSelected] = useState(0)
   const [points, setVotes] = useState(new Uint8Array(anecdotes.length))
 
+  const [exercises, setExercises] = useState([])
+
+  const [currExercise, setCurrExercise] = useState('')
+  const [currSet, setCurrSet] = useState(0)
+  const [currRep, setCurrRep] = useState(0)
+
 
   const handleRandomQuote = () => {
     const randRange = Math.floor(Math.random() * anecdotes.length)
@@ -61,6 +69,12 @@ const App = () => {
         <button onClick={handleVote}>vote</button>
         <button onClick={handleRandomQuote}>next anecdote</button>
       </div>
+      <ExerciseForm
+        setExercises={setExercises}
+        setCurrExercise={setCurrExercise}
+        setCurrSet={setCurrSet}
+        setCurrRep={setCurrRep}
+      />
       <TopAnecdote numVotes={Math.max(...points)} anecdote={anecdotes[points.indexOf(Math.max(...points))]}/>
     </div>
   )
