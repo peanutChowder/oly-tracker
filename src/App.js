@@ -28,7 +28,10 @@ const App = () => {
         setCurrRep={setCurrRep}
         setCurrDate={setDate}
       />
-      <ExerciseGrid exercises={exercises}/>
+      <ExerciseGrid 
+        exercises={exercises}
+        setExercises={setExercises}
+      />
     </div>
   )
 }
