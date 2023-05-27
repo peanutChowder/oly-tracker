@@ -1,0 +1,21 @@
+{
+  "exercises": [
+    {
+      "date": "05/26/23",
+      "name": "cnj",
+      "reps": 3,
+      "sets": 5,
+      "setsWeights": ["90kg", "95kg", "100kg"]
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
