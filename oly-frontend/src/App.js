@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import exerciseService from './services/exercises'
+
 import './index.css'
 import ExerciseForm from './components/ExerciseForm'
 import ExerciseGrid from './components/ExerciseGrid'
@@ -11,6 +13,16 @@ const App = () => {
   const [currSet, setCurrSet] = useState('')
   const [currRep, setCurrRep] = useState('')
   const [date, setDate] = useState(new Date().toLocaleDateString('en-US', {day: "2-digit", month:"2-digit", year: "2-digit"}))
+
+  useEffect( () => {
+    // console.log("triggered")
+    const fetchExercises = async () => {
+      const response = await exerciseService.getAll()
+      console.log(response.data)
+      setExercises(response.data)
+    }
+    fetchExercises()
+  }, [])
 
   return (
     <div>
