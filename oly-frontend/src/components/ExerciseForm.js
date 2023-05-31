@@ -12,7 +12,8 @@ const ExerciseForm = (
         setCurrExercise,
         setCurrRep,
         setCurrSet,
-        setCurrDate
+        setCurrDate,
+        addExerciseToServer
     }
 ) => {
 
@@ -38,18 +39,22 @@ const ExerciseForm = (
             console.log("Exceeding maximum sets. Did not add exercise")
             return
         }
+
+        const newExercise = {
+            "name": currExercise,
+            "sets": currSet,
+            "reps": currRep,
+            "date": currDate,
+            "setsWeights": Array(parseInt(currSet)).fill(0)
+        }
         setExercises(
             [
                 ...exercises, 
-                {
-                    "name": currExercise,
-                    "sets": currSet,
-                    "reps": currRep,
-                    "date": currDate,
-                    "setsWeights": Array(parseInt(currSet)).fill(0)
-                }
+                newExercise
             ]
         )
+
+        addExerciseToServer(newExercise)
 
         // clear input 
         setCurrExercise('')

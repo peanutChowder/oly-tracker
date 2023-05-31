@@ -39,6 +39,7 @@ const App = () => {
         setCurrSet={setCurrSet}
         setCurrRep={setCurrRep}
         setCurrDate={setDate}
+        addExerciseToServer={exerciseService.create}
       />
       <ExerciseGrid 
         exercises={exercises}
