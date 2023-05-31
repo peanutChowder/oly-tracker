@@ -1,6 +1,3 @@
-// todo: create this thing so that each row can have varying cell lengths.
-// we will use inline styles to do this
-
 const ExerciseRow = ({exerciseObj, allExercises, setExercises}) => {
     const handleSetWeightChange = (event) => {
         console.log("Selected index", event.target.dataset.setnum)
