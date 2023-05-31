@@ -19,7 +19,6 @@ const ExerciseGrid = ({exercises, setExercises}) => {
                 setExercises={setExercises}
                 />
             ))}
-            {/* <ExerciseRow exerciseObj={{date: "5/11/20", name: "Clean and jerk", sets: "4", reps: "3"}} numSets={4}/> */}
         </div>
     )
 }
