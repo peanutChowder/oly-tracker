@@ -22,7 +22,7 @@ const ExerciseRow = ({exerciseObj, allExercises, setExercises}) => {
         })
         setExercises(updatedExercises)
     }
-    console.log("allExercises", allExercises)
+
     return (
         <div className='exercise-row'>
             <div className='grid-item'>{exerciseObj.date}</div>
