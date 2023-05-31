@@ -17,6 +17,7 @@ const App = () => {
   useEffect( () => {
     const fetchExercises = async () => {
       const response = await exerciseService.getAll()
+      console.log("GET all from server:", response.data)
       setExercises(response.data)
     }
     fetchExercises()
