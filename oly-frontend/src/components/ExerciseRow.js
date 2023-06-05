@@ -22,16 +22,18 @@ const ExerciseRow = ({exerciseObj, allExercises, setExercises}) => {
         })
         setExercises(updatedExercises)
     }
-
+// TODO: leftoff here -> why are the exercise name sizes not changing? 
     return (
         <div className='exercise-row'>
-            <div className='grid-item'>{exerciseObj.date}</div>
-            <div className='grid-item'>{exerciseObj.name}</div>
-            <div className='grid-item'>{exerciseObj.sets}</div>
-            <div className='grid-item'>{exerciseObj.reps}</div>
-            {[...Array(parseInt(exerciseObj.sets)).keys()].map((key) => (
-                <input data-setnum={key} key={key} onChange={handleSetWeightChange}></input>
-            ))}
+            <span className='grid-item date'>{exerciseObj.date}</span>
+            <span className='grid-item exercise'>{exerciseObj.name}</span>
+            <span className='grid-item sets'>{exerciseObj.sets}</span>
+            <span className='grid-item reps'>{exerciseObj.reps}</span>
+            <div className='weight-input-container'>
+                {[...Array(parseInt(exerciseObj.sets)).keys()].map((key) => (
+                    <input className='weight-input' data-setnum={key} key={key} onChange={handleSetWeightChange}></input>
+                ))}
+            </div>
         </div>
     )
 }

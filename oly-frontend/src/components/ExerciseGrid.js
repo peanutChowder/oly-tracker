@@ -5,10 +5,10 @@ const ExerciseGrid = ({exercises, setExercises}) => {
     return (
         <div>
             <div className='exercise-row'>
-                <div className='grid-item'>Date</div>
-                <div className='grid-item'>Exercise name</div>
-                <div className='grid-item'>Sets</div>
-                <div className='grid-item'>Reps</div>
+                <div className='grid-item date'>Date</div>
+                <div className='grid-item exercise'>Exercise</div>
+                <div className='grid-item sets'>Sets</div>
+                <div className='grid-item reps'>Reps</div>
                 {[...Array(weightEntries).keys()].map((key) => (<div key={key}></div>))}
                 
             </div>
