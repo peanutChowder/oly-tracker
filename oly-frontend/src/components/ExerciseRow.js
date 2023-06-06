@@ -31,7 +31,7 @@ const ExerciseRow = ({exerciseObj, allExercises, setExercises}) => {
             <span className='grid-item reps'>{exerciseObj.reps}</span>
             <div className='weight-input-container'>
                 {[...Array(parseInt(exerciseObj.sets)).keys()].map((key) => (
-                    <input className='weight-input' data-setnum={key} key={key} onChange={handleSetWeightChange}></input>
+                    <input className='weight-input grid-item' data-setnum={key} key={key} onChange={handleSetWeightChange}></input>
                 ))}
             </div>
         </div>

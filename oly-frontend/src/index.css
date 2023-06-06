@@ -1,16 +1,16 @@
 .grid-container {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    background-color: #2196F3;
     padding: 10px;
   }
 
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  border: none;
   padding: 5px;
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
+  box-shadow: 0px 0px 3px rgb(73, 73, 73);
 }
 
 .date {
@@ -35,7 +35,6 @@
 .exercise-row {
   display: flex;
   grid-template-columns: 10% 20% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5% 5%;
-  background-color: #2196F3;
   padding: 1px;
 }
 
@@ -44,5 +43,16 @@
 }
 
 .weight-input {
+  font-size: 12px;
   width: 40px;
+  transition: 0.3s;
+}
+
+.weight-input:hover {
+  box-shadow: 0px 0px 9px orange;
+}
+
+.weight-input:focus {
+  box-shadow: 0px 0px 9px red;
+  outline: none;
 }
