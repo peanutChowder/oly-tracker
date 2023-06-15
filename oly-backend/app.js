@@ -1,6 +1,7 @@
 const config = require('./utils/config')
 const express = require('express')
 const app = express()
+require('express-async-errors')
 const exerciseRouter = require('./controllers/exercise')
 const middleware = require('./utils/middleware')
 const cors = require("cors")
