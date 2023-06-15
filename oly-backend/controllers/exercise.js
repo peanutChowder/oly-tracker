@@ -5,7 +5,7 @@ const logger = require('../utils/logger')
 exerciseRouter.get("/", async (request, response, next) => {
     const exercises = await Exercise.find({})
 
-    response.json(exercises)
+    return response.json(exercises)
 })
 
 exerciseRouter.get("/:id", (request, response, next) => {
@@ -21,18 +21,29 @@ exerciseRouter.get("/:id", (request, response, next) => {
 })
 
 exerciseRouter.put("/:id", async (request, response, next) => {
-    const updatedExercise = await Exercise.findByIdAndUpdate(
-        request.params.id, 
-        request.body, 
-        {new: true, runValidators: true}
-    )
+    if (request.params.id === "undefined") {
+        logger.error(`Received 'undefined' as exercise id`)
+        return response.status(404).json({error: `Received 'undefined' as exercise id`})
+    }
+    
+    try {
+        const updatedExercise = await Exercise.findByIdAndUpdate(
+            request.params.id, 
+            request.body, 
+            {new: true, runValidators: true, omitUndefined: true}
+        )
 
-    if (updatedExercise === null) {
-        logger.error(`PUT request failed on id '${request.params.id}'`)
-        return response.status(404).json({error: `Exercise does not exist: '${request.body}'`})
+        if (updatedExercise === null) {
+            logger.error(`PUT request failed on id '${request.params.id}'`)
+            return response.status(404).json({error: `Exercise does not exist: '${request.body}'`})
+        }
+    
+        response.status(204).json(request.body)
+    } catch (exception) {
+        next(exception)
     }
 
-    response.status(204).json(request.body)
+
 })
 
 exerciseRouter.post("/", async (request, response, next) => {
