@@ -1,4 +1,4 @@
-const ExerciseRow = ({exerciseObj, allExercises, setExercises}) => {
+const ExerciseRow = ({exerciseObj, allExercises, setExercises, updateExerciseServer, fetchExercisesFromServer}) => {
     const handleSetWeightChange = (event) => {
         console.log("Selected index", event.target.dataset.setnum)
         console.log("value", event.target.value)
@@ -20,9 +20,11 @@ const ExerciseRow = ({exerciseObj, allExercises, setExercises}) => {
             }
             return exercise
         })
+        console.log(updatedExercises)
         setExercises(updatedExercises)
+        updateExerciseServer(exerciseObj.id, updatedExerciseObj)
     }
-// TODO: leftoff here -> why are the exercise name sizes not changing? 
+
     return (
         <div className='exercise-row'>
             <span className='grid-item date'>{exerciseObj.date}</span>
@@ -30,8 +32,8 @@ const ExerciseRow = ({exerciseObj, allExercises, setExercises}) => {
             <span className='grid-item sets'>{exerciseObj.sets}</span>
             <span className='grid-item reps'>{exerciseObj.reps}</span>
             <div className='weight-input-container'>
-                {[...Array(parseInt(exerciseObj.sets)).keys()].map((key) => (
-                    <input className='weight-input grid-item' data-setnum={key} key={key} onChange={handleSetWeightChange}></input>
+                {exerciseObj.setsWeights.map((set, index) => (
+                    <input className='weight-input grid-item' data-setnum={index} key={index} value={set} onChange={handleSetWeightChange}></input>
                 ))}
             </div>
         </div>

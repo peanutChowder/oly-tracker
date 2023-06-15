@@ -14,14 +14,15 @@ const App = () => {
   const [currRep, setCurrRep] = useState('')
   const [date, setDate] = useState(new Date().toLocaleDateString('en-US', {day: "2-digit", month:"2-digit", year: "2-digit"}))
 
+  const fetchExercisesFromServer = async () => {
+    const response = await exerciseService.getAll()
+    console.log("GET all from server:", response.data)
+    setExercises(response.data)
+  }
+
   useEffect( () => {
-    const fetchExercises = async () => {
-      const response = await exerciseService.getAll()
-      console.log("GET all from server:", response.data)
-      setExercises(response.data)
-    }
-    fetchExercises()
-  }, [])
+    fetchExercisesFromServer()
+  }, [currExercise])
 
   return (
     <div>
@@ -43,6 +44,7 @@ const App = () => {
       <ExerciseGrid 
         exercises={exercises}
         setExercises={setExercises}
+        updateExerciseServer={exerciseService.update}
       />
     </div>
   )

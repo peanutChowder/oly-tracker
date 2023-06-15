@@ -1,6 +1,6 @@
 import ExerciseRow from "./ExerciseRow"
 
-const ExerciseGrid = ({exercises, setExercises}) => {
+const ExerciseGrid = ({exercises, setExercises, updateExerciseServer}) => {
     const weightEntries = 12
     return (
         <div>
@@ -17,6 +17,7 @@ const ExerciseGrid = ({exercises, setExercises}) => {
                 exerciseObj={exercise}
                 allExercises={exercises}
                 setExercises={setExercises}
+                updateExerciseServer={updateExerciseServer}
                 />
             ))}
         </div>
