@@ -45,7 +45,7 @@ const ExerciseForm = (
             "sets": currSet,
             "reps": currRep,
             "date": currDate,
-            "setsWeights": Array(parseInt(currSet)).fill(0)
+            "setsWeights": Array(parseInt(currSet)).fill('0')
         }
         setExercises(
             [
