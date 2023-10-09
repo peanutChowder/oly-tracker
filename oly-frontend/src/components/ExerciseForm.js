@@ -35,10 +35,14 @@ const ExerciseForm = (
 
     const addExercise = (event) => {
         event.preventDefault()
+
         if (currSet > MAX_SETS) {
             console.log("Exceeding maximum sets. Did not add exercise")
+            alert(`Exceeds maximum supported sets ${MAX_SETS}.`)
             return
         }
+
+        
 
         const newExercise = {
             "name": currExercise,
