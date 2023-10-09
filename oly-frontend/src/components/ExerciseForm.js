@@ -76,9 +76,9 @@ const ExerciseForm = (
                 <div className='grid-item'>Reps</div>
                 <div className='grid-item'>Date</div>
                 <div className='grid-item'><input onChange={handleExerciseChange} value={currExercise}></input></div>
-                <div className='grid-item'><input onChange={handleSetChange} value={currSet}></input></div>
-                <div className='grid-item'><input onChange={handleRepChange} value={currRep}></input></div>
-                <div className='grid-item'><input onChange={handleDateChange} value={currDate}></input></div>
+                <div className='grid-item'><input onChange={handleSetChange} value={currSet} type="number"></input></div>
+                <div className='grid-item'><input onChange={handleRepChange} value={currRep} type="number"></input></div>
+                <div className='grid-item'><input onChange={handleDateChange} value={currDate} type="date"></input></div>
             </div>
             <button type="submit">Add</button>
         </form>
