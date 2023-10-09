@@ -33,16 +33,31 @@ const ExerciseForm = (
         setCurrDate(event.target.value)
     }
 
+    const isValidExerciseRow = (exercise, sets) => {
+        // return if exercise name is only whitespace
+        if (!exercise.replace(/\s/g, '').length) {
+            alert("Exercise name cannot be empty")
+            return false
+        }
+            
+        // Sets must be provided and fall between 1 <= sets <= MAX_SETS
+        if (!sets.replace(/\s/g, '').length) {
+            alert("Must provide sets")
+            return false
+        } else {
+            if (sets > MAX_SETS || sets < 1) {
+                alert(`Number of sets must be within 1 to ${MAX_SETS}`)
+                return false
+            }
+        }
+        return true
+    }
+
     const addExercise = (event) => {
         event.preventDefault()
 
-        if (currSet > MAX_SETS) {
-            console.log("Exceeding maximum sets. Did not add exercise")
-            alert(`Exceeds maximum supported sets ${MAX_SETS}.`)
-            return
-        }
-
-        
+        // reps and date are constrained by input
+        if (!isValidExerciseRow(currExercise, currSet)) return false
 
         const newExercise = {
             "name": currExercise,
