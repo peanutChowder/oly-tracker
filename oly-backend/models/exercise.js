@@ -13,7 +13,7 @@ exerciseSchema.set("toJSON", {
         returnedObject.id = returnedObject._id.toString()
 
         const convertedDate = new Date(returnedObject.date)
-        returnedObject.date = convertedDate.toLocaleDateString('en-US', {day: "2-digit", month:"2-digit", year: "2-digit"})
+        returnedObject.date = convertedDate.toISOString().substring(0, 10)
 
         delete returnedObject._id
         delete returnedObject.__v

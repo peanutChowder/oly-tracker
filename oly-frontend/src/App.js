@@ -9,10 +9,12 @@ const App = () => {
   const MAX_SETS = 12
   const [exercises, setExercises] = useState([])
 
+  const today = new Date()
+
   const [currExercise, setCurrExercise] = useState('')
   const [currSet, setCurrSet] = useState('')
   const [currRep, setCurrRep] = useState('')
-  const [date, setDate] = useState(new Date().toLocaleDateString('en-US', {day: "2-digit", month:"2-digit", year: "2-digit"}))
+  const [date, setDate] = useState(today.toISOString().substring(0, 10))
 
   const fetchExercisesFromServer = async () => {
     const response = await exerciseService.getAll()
